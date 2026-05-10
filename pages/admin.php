@@ -1,7 +1,7 @@
 <?php
 requireAdmin();
 $tab = $_GET['tab']??'users';
-$users = db()->query("SELECT u.*,(SELECT COUNT(*) FROM trips WHERE user_id=u.id) as trip_count FROM users ORDER BY created_at DESC")->fetchAll();
+$users = db()->query("SELECT u.*,(SELECT COUNT(*) FROM trips WHERE user_id=u.id) as trip_count FROM users u ORDER BY created_at DESC")->fetchAll();
 $tripsAll = db()->query("SELECT t.*,u.first_name,u.last_name FROM trips t JOIN users u ON u.id=t.user_id ORDER BY t.created_at DESC LIMIT 50")->fetchAll();
 $topCities = db()->query("SELECT city, COUNT(*) as cnt FROM stops GROUP BY city ORDER BY cnt DESC LIMIT 10")->fetchAll();
 $topActs = db()->query("SELECT category,COUNT(*) as cnt FROM activities GROUP BY category ORDER BY cnt DESC LIMIT 8")->fetchAll();
