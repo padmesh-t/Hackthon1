@@ -20,3 +20,5 @@ Manage trips, build itineraries, track budgets, create packing lists, write note
    define('DB_NAME', 'traveloop');
    define('DB_USER', 'root');
    define('DB_PASS', '');
+   
+Admin: admin@traveloop.com / admin123
